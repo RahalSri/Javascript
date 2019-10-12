@@ -1,0 +1,10 @@
+In JavaScript the value of this not refer to the function in which it is used or it’s scope but is determined mostly 
+by the invocation context of function (context.function()) and where it is called.
+
+Four rules of understanding this
+1. default binding
+2. implicit binding
+3. explicit binding
+4. new binding 
+
+https://medium.com/tech-tajawal/javascript-this-4-rules-7354abdb274c

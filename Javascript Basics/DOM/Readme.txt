@@ -1,0 +1,1 @@
+"document" object is a representation of DOM. it allows some method to access dom elements via javascript.

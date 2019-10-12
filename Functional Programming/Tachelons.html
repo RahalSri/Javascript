@@ -1,0 +1,97 @@
+<!-- How to think the about the problem in functional programming paradigm
+1. Break down problem scope to smallest pieces
+2. define reusable functions for each smallest peices by using Single Responsibility
+-->
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+    <script
+        src="https://cdn.rawgit.com/knowthen/d90da7fbbcc3222252d2845eef2adc38/raw/6099003c3102daf281681cd92b7158477a1bc5f4/hyperscript-browser.js">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
+</head>
+
+<body class="san-serif bg-white pa3">
+    <div id="app"></div>
+    <!--
+    <table class="mw5 center w-100 collapse">
+        <thead>
+            <tr>
+                <th class="pa2 tl">Meal</th>
+                <th class="pa2 tr">Caleories</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="stripe-dark">
+                <td class="pa2">Breakfast</td>
+                <td class="pa2 tr">460</td>
+            </tr>
+            <tr class="stripe-dark">
+                <td class="pa2">Snack</td>
+                <td class="pa2 tr">420</td>
+            </tr>
+            <tr class="bt b">
+                <td class="pa2 tr">Total</td>
+                <td class="pa2 tr">1000</td>
+            </tr>
+        </tbody>
+    </table>
+    -->
+    <script>
+        const { td, th, tr, thead, tbody, table } = tags;
+        const meals = [
+            { description: "Breakfast", caleories: 550 },
+            { description: "Snacks", caleories: 442 },
+            { description: "Dinner", caleories: 376 }
+        ];
+
+        function cell(tag, className, value) {
+            return tag({ className }, value);
+        };
+
+        function mealRow(className, meal) {
+            return tr({ className }, [
+                cell(td, 'pa2', meal.description),
+                cell(td, 'pa2 tr', meal.caleories)
+            ]);
+        }
+
+        const headerRow = tr([
+            cell(th, 'pa2 tl', 'Meal'),
+            cell(th, 'pa2 tr', 'Caleories')
+        ]);
+
+
+        function totalRow(meals) {
+            //const total = meals.reduce((total, meal) => total + meal.caleories, 0);
+            const total = R.pipe(
+                R.map(meal => meal.caleories),
+                R.reduce((acc, caleory) => acc + caleory, 0)
+            )(meals)
+            return tr({ className: 'bt b' }, [
+                cell(th, 'pa2 tr', 'Total'),
+                cell(th, 'pa2 tr', total)
+            ]);
+        }
+        function mealBody(className, meals) {
+            const rows = R.map(R.partial(mealRow, ['stripe-dark']), meals);
+            const rowsWithTotal = R.append(totalRow(meals), rows);
+            return tbody({ className }, rowsWithTotal);
+        }
+
+        function mealHeader(headerRow) {
+            return thead(headerRow);
+        }
+
+        function mealsTable() {
+            return table({ className: 'mw5 center w-100 collapse' }, [mealHeader(headerRow), mealBody('', meals)])
+        }
+
+        const app = document.getElementById('app');
+        app.appendChild(mealsTable());
+    </script>
+</body>
+
+</html>
