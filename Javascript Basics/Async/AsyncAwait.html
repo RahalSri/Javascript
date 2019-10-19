@@ -1,0 +1,47 @@
+<html>
+
+    <body>
+        <script>
+            const getUserId6 = userName =>
+    new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (userName === 'Rahal') {
+                        resolve(1);
+                    } else {
+                        reject(-1);
+                    }
+                }, 1000)
+            });
+        
+        const getRoleIdByUserId6 = userId =>
+    new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (userId === 1) {
+                        resolve(2);
+                    } else {
+                        reject(-1);
+                    }
+                }, 1000)
+            });
+        
+        const getPermissionByRoleId6 = roleId =>
+    new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (roleId === 2) {
+                        resolve(['edit', 'delete']);
+                    } else {
+                        reject(['No permission']);
+                    }
+                }, 1000)
+            });
+        
+(async () => {
+    const userId = await getUserId6('Rahal');
+            const roleId = await getRoleIdByUserId6(userId);
+            const perm = await getPermissionByRoleId6(roleId);
+            console.log(perm);
+        })();
+        
+</script>
+    </body>
+</html>

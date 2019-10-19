@@ -10,15 +10,6 @@ var greet2 = function () {
     console.log('Hello there!');
 }
 
-//First class function : Everyting that you can do with other variable types, you can do with functions.
-// i.e pass as param, assign to variable , many more
-
-function logGreet(fn) {
-    fn();
-}
-
-logGreet(greet1);
-
 
 //Function construtors : Are normal functions that use to construct objects.
 // New empty object will be created, assign "this" pointer to that new empty object and that object will be returned
@@ -29,3 +20,16 @@ function Person(name) {
 
 var john = new Person('John');
 console.log('Hello ' + john.name);
+
+//First class function : Everyting that you can do with other variable types, you can do with functions.
+// i.e pass as param, assign to variable , many more
+
+function logGreet(fn) {
+    fn();
+}
+
+logGreet(greet1);
+
+//Immediate Invode Function Expressions. usually can be used to define private variable
+(function () { var score = 50; console.log(score) }
+)();

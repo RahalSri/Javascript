@@ -1,0 +1,99 @@
+<html>
+
+<body>
+    <script>
+        //------------------------ES5----------------------------
+        //Usually callbacks are used to handle async operations in old javascript versions
+        function userPermissions(userName) {
+            getUserId(userName, userId => {
+                getRoleIdByUserId(userId, roleId => {
+                    getPermissionByRoleId(roleId, permissions => {
+                        console.log(permissions);
+                    })
+                });
+            })
+        }
+
+        function getUserId(userName, callback) {
+            setTimeout(() => {
+                if (userName === 'Rahal') {
+                    callback(1);
+                } else {
+                    callback(-1);
+                }
+            }, 1000)
+        }
+
+        function getRoleIdByUserId(useId, callback) {
+            setTimeout(() => {
+                if (useId === 1) {
+                    callback(2);
+                } else {
+                    callback(-1);
+                }
+            }, 1000)
+        }
+
+        function getPermissionByRoleId(roleId, callback) {
+            setTimeout(() => {
+                if (roleId === 2) {
+                    callback(['edit', 'delete']);
+                } else {
+                    callback(['No permission']);
+                }
+            }, 1000)
+        }
+        userPermissions('Rahal');
+
+        //------------------------ES6----------------------------
+        console.log('------------------------ES6----------------------------');
+        const getUserId6 = userName =>
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (userName === 'Rahal') {
+                        resolve(1);
+                    } else {
+                        reject(-1);
+                    }
+                }, 1000)
+            });
+
+        const getRoleIdByUserId6 = userId =>
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (userId === 1) {
+                        resolve(2);
+                    } else {
+                        reject(-1);
+                    }
+                }, 1000)
+            });
+
+        const getPermissionByRoleId6 = roleId =>
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (roleId === 2) {
+                        resolve(['edit', 'delete']);
+                    } else {
+                        reject(['No permission']);
+                    }
+                }, 1000)
+            });
+
+        getUserId6('Rahal')
+            .then(userId => {
+                return getRoleIdByUserId6(userId);
+            })
+            .then(roleId => {
+                return getPermissionByRoleId6(roleId);
+            })
+            .then(perm => {
+                console.log(perm);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    </script>
+</body>
+
+</html>
