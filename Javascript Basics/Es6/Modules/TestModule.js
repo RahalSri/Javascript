@@ -1,0 +1,1 @@
+export default greet = "Hello my module"; // Named export

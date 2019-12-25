@@ -13,14 +13,19 @@ See img/Prototype.png
 */
 
 function Person(name) {
-    this.name = name;
+  this.name = name;
 }
+// see img/Person.png
 
 Person.prototype.greet = function () {
-    console.log(this.name);
+  console.log(this.name);
 }
+// see img/Personproto
 
 var john = new Person('John');
+
+//seee img/JohnProto
+
 john.greet();
 var jane = new Person('Jane');
 jane.greet();

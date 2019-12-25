@@ -1,3 +1,4 @@
+//-------------------- ES 5---------------------------
 // Fundamental building block similar to class in java
 // Closure & IFEE techniques used
 
@@ -22,3 +23,8 @@ var myModule = (function () {
 
 // can access setAge
 myModule.setAge(7);
+
+
+//-------------------- ES 6---------------------------
+// use "import" and "export" keywords
+// 

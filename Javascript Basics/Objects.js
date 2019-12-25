@@ -15,7 +15,9 @@ var john = new Person('John');
 console.log('Hello ' + john.name);
 
 // 3. Object.create
-
+// create a new empty object and assign input object(jane) to __proto__
+var janeObj = Object.create(jane);
+console.dir(janeObj.__proto__);
 
 
 // Object behave and store as same as in java

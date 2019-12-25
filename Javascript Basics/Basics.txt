@@ -1,3 +1,19 @@
+** javascript is single threaded language. i.e. program hold when it encounter alert('hello')
+
+---------- How web api calls (async calls like ajax) work --------------
+
+**** browser (not v8) has web api that can handle in background
+1.call stack recognise web api functions and handed over to browser
+2. browser execute them in background 
+3. once task finished browser push callback function to "callback queue"
+4. "event loop" send call back function from "callback queue" to "call stack"
+
+#3 explained with more details in "/img/event loop.png"
+
+https://dev.to/steelvoltage/if-javascript-is-single-threaded-how-is-it-asynchronous-56gd
+
+
+
 
 ------------------- Primitive data types ---------------
 1. String
