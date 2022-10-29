@@ -2,7 +2,8 @@
 
 ---------- How web api calls (async calls like ajax) work --------------
 
-**** browser (not v8) has web api that can handle in background
+browser (not v8) has web api that can handle in background
+
 1.call stack recognise web api functions and handed over to browser
 2. browser execute them in background 
 3. once task finished browser push callback function to "callback queue"
@@ -121,6 +122,7 @@ Before execute code javascript create execution context object which consist of 
     * this object attached to the execusion context
     
 ---------------------------- EXPLANATION 2---------------------------------
+
 https://www.youtube.com/watch?v=Fd9VaW0M7K4
 
 When your run javascripti a special environment called exection context is created to handle the transformation & execution of code. It contains the currently running code and everything that aids in its execution.
@@ -149,3 +151,5 @@ See Execution context ex1.img
 Function Execution Context   
 
 It has similar structure and behavior as in gloabl execution context. Each and every function has their own execution context
+
+See Function Execution context ex1.img
