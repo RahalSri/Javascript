@@ -136,15 +136,15 @@ Execution Context can be visualise as two parts.
 Execution context has two phases.
 
 1. Memory Creation Phase
- i) Create global object (browser = window, Node.js = global)
- ii) Create 'this' object and bind it to the global object
- iii) Setup memory heap for story variables and function references
- iv) code scan for "function declaration" and pointing is created inside global object to that function
- v) code scan for variable declarations and initialiaed as undefined
+    i) Create global object (browser = window, Node.js = global)
+    ii) Create 'this' object and bind it to the global object
+    iii) Setup memory heap for story variables and function references
+    iv) code scan for "function declaration" and pointing is created inside global object to that function
+    v) code scan for variable declarations and initialiaed as undefined
  
 2. Execution Phase
- i) Execute code line by line
- ii) Create new execution context for each function call
+    i) Execute code line by line
+    ii) Create new execution context for each function call
  
 See Execution context ex1.img
 
