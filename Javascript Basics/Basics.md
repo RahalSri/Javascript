@@ -54,7 +54,7 @@ ES5(2009) -> ES6(2015) -> SO ON
 ES5 : all browsers fully support
 ES6 upwords : does not support old browsers. To support all browsers they need to convert ES5 by transfilling and polyfillling
 
------------------------------------------------------------------
+---------------------------- EXPLANATION 1---------------------------------
 what happen to javascript code : see/img/javascript engine.png
 
 execusion context : A container which store variables and in which a piece of our code is evaluated and executed.
@@ -119,4 +119,33 @@ Before execute code javascript create execution context object which consist of 
     - Method call (a function inside javascript object): this keyword point to the object that calling the method
 
     * this object attached to the execusion context
+    
+---------------------------- EXPLANATION 2---------------------------------
+https://www.youtube.com/watch?v=Fd9VaW0M7K4
 
+When your run javascripti a special environment called exection context is created to handle the transformation & execution of code. It contains the currently running code and everything that aids in its execution.
+
+See Execution context.img
+
+Execution Context can be visualise as two parts.
+1. Memory
+2. Execution
+
+Execution context has two phases.
+
+1. Memory Creation Phase
+ i) Create global object (browser = window, Node.js = global)
+ ii) Create 'this' object and bind it to the global object
+ iii) Setup memory heap for story variables and function references
+ iv) code scan for "function declaration" and pointing is created inside global object to that function
+ v) code scan for variable declarations and initialiaed as undefined
+ 
+2. Execution Phase
+ i) Execute code line by line
+ ii) Create new execution context for each function call
+ 
+See Execution context ex1.img
+
+Function Execution Context   
+
+It has similar structure and behavior as in gloabl execution context. Each and every function has their own execution context
