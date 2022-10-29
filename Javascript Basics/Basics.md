@@ -1,6 +1,6 @@
-** javascript is single threaded language. i.e. program hold when it encounter alert('hello')
+javascript is single threaded language. i.e. program hold when it encounter alert('hello')
 
----------- How web api calls (async calls like ajax) work --------------
+# How web api calls (async calls like ajax) work 
 
 browser (not v8) has web api that can handle in background
 
@@ -16,20 +16,20 @@ https://dev.to/steelvoltage/if-javascript-is-single-threaded-how-is-it-asynchron
 
 
 
-------------------- Primitive data types ---------------
+#  Primitive data types 
 1. String
 2. Number
 3. Boolean
 4. Undefined
 5. null
 
-*** They are dynamic. data types are automatically assigned to varialbles
+hey are dynamic. data types are automatically assigned to varialbles
 
-------------------------------- Falsy values -----------------------------
+#  Falsy values 
 Falsy values are values when they evaluate as false in if condition
 i.e : false, '', null, undefined, 0, NaN
 
--------------------------------- equality opperator -----------------------------
+# equality opperator
 equality opperator
 
 var height = 23;
@@ -46,7 +46,7 @@ if(height === '23'){
 
 above condition not satisfied as === do strict comparison.
 
-----------------------------------------------------------------
+# Background
 
 javascript versions
 
@@ -55,21 +55,19 @@ ES5(2009) -> ES6(2015) -> SO ON
 ES5 : all browsers fully support
 ES6 upwords : does not support old browsers. To support all browsers they need to convert ES5 by transfilling and polyfillling
 
----------------------------- EXPLANATION 1---------------------------------
+#  EXPLANATION 1
 what happen to javascript code : see/img/javascript engine.png
 
 execusion context : A container which store variables and in which a piece of our code is evaluated and executed.
 Global execusion context : Codes that is not in functions. In browser this is 'window' object
 Execusion stack : each function will have their own ecxecusion context and when functiona call stack will be created. see : /img/execusion stack.png
 
------------------------------------------------------------------
-
 Before execute code javascript create execution context object which consist of follows
 1. Variable object
 2. Scope chain
 3. "This" object
 
-1. Variable object
+## Variable object
    i contain all the argument passed to function
    ii code scan for "function declaration" and pointing is created inside variable object to that function
    iii code scan for variable declarations and initialiaed as undefined
@@ -97,7 +95,7 @@ Before execute code javascript create execution context object which consist of 
     var age = 23;
 
 
-2. Scope chain
+## Scope chain
 
     * in javascript only way to create new scope is by using new function
     * Lexical scope : A function that is lexically within another function get access to the scope of outer function
@@ -115,15 +113,17 @@ Before execute code javascript create execution context object which consist of 
 
     Scope chain  != execusion stack (Scope chain is solely depend on lexically)
 
-3. "This" object
+## "This" object
     - Regular function call : this keyword point to the global object
     - Method call (a function inside javascript object): this keyword point to the object that calling the method
 
     * this object attached to the execusion context
     
----------------------------- EXPLANATION 2---------------------------------
+# EXPLANATION 2
 
 https://www.youtube.com/watch?v=Fd9VaW0M7K4
+
+## Execution Context
 
 When your run javascripti a special environment called exection context is created to handle the transformation & execution of code. It contains the currently running code and everything that aids in its execution.
 
@@ -148,7 +148,7 @@ Execution context has two phases.
  
 See Execution context ex1.img
 
-Function Execution Context   
+## Function Execution Context   
 
 It has similar structure and behavior as in gloabl execution context. Each and every function has their own execution context
 
